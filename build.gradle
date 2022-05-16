@@ -1,38 +1,15 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
+apply from: './versionsPlugin.gradle'
 buildscript {
-    ext.kotlin_version = '1.4.32'
+    apply from: './dependencies.gradle'
     repositories {
         google()
         jcenter()
-
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.2.0-rc02"
-    }
-
-
-    ext {
-        // Versions for all the dependencies we plan to use. It's particularly useful for kotlin and
-        // navigation where the versions of the plugin needs to be the same as the version of the
-        // library defined in the app Gradle file
-        version_core = "1.1.0"
-        version_kotlin_coroutines = "1.1.0"
-        version_lifecycle_extensions = "2.2.0-rc03"
-        version_moshi = "1.8.0"
-        version_navigation = "2.2.0-rc02"
-        version_retrofit = "2.6.0"
-        version_retrofit_coroutines_adapter = "0.9.2"
-        version_coroutines = "1.2.1"
-        version_material = "1.2.0-alpha02"
-        version_glide = "4.10.0"
-        version_koin = "2.0.0"
-        versions_work = "2.3.4"
+        classpath "com.android.tools.build:gradle:$versions.gradleBuildTool"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+        classpath "com.diffplug.spotless:spotless-plugin-gradle:$versions.spotlessGradle"
+        classpath "com.github.ben-manes:gradle-versions-plugin:$versions.versionPlugin"
     }
 }
 
@@ -40,7 +17,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-
     }
 }
 
